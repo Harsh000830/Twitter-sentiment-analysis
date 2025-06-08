@@ -5,8 +5,11 @@ This project uses Twitter API (via Tweepy) and TextBlob for performing real-time
 
 ## 📊 Output Example
 Below is a sample analysis result for the keyword "fun" with a limit of 10 tweets:
+![Screenshot 2025-06-08 151124](https://github.com/user-attachments/assets/cee08a0f-5d6e-4397-b710-9cf0836560dc)
+
 
 ```
+
 Analyzed 10 tweets on 'fun'
 General Sentiment: Weakly Positive
 
