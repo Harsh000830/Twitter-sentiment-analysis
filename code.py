@@ -1,6 +1,3 @@
-# Save the provided code into a downloadable Python file
-
-code_content = """
 import tweepy
 import csv
 import re
@@ -14,7 +11,7 @@ class SentimentAnalysis:
 
     def DownloadData(self):
         # Twitter API v2 Bearer Token
-        bearer_token = 'YOUR_BEARER_TOKEN_HERE'  # Replace this with your real token
+        bearer_token = 'AAAAAAAAAAAAAAAAAAAAAIRc2QEAAAAAtc49FH8Qo7%2FGUHv4bNOIPXwu0iQ%3DtDmzTAXgqe9sIqWQ7XjCPKVAgc3pLSrtxCMBjbtyQsw4aHaG8Y'  # Replace this with your real token
 
         # Authenticate
         client = tweepy.Client(bearer_token=bearer_token)
@@ -40,7 +37,7 @@ class SentimentAnalysis:
         neutral = 0
 
         # Save to CSV
-        with open('/content/result.csv', 'w', newline='', encoding='utf-8') as csvFile:
+        with open('result.csv', 'w', newline='', encoding='utf-8') as csvFile:
             csvWriter = csv.writer(csvFile)
             csvWriter.writerow(["Tweet Text"])
 
@@ -84,11 +81,11 @@ class SentimentAnalysis:
         polarity = polarity / total
 
         # General Report
-        print(f"\\nAnalyzed {total} tweets on '{searchTerm}'")
+        print(f"\nAnalyzed {total} tweets on '{searchTerm}'")
         print("General Sentiment:", self.getSentimentLabel(polarity))
 
         # Detailed Report
-        print("\\nDetailed Sentiment Report:")
+        print("\nDetailed Sentiment Report:")
         print(f"Positive: {positive}%")
         print(f"Weakly Positive: {wpositive}%")
         print(f"Strongly Positive: {spositive}%")
@@ -100,7 +97,7 @@ class SentimentAnalysis:
         self.plotPieChart(positive, wpositive, spositive, negative, wnegative, snegative, neutral, searchTerm, total)
 
     def cleanTweet(self, tweet):
-        return ' '.join(re.sub(r"(@[A-Za-z0-9_]+)|([^0-9A-Za-z \\t])|(\\w+:\\/\\/\\S+)", " ", tweet).split())
+        return ' '.join(re.sub(r"(@[A-Za-z0-9_]+)|([^0-9A-Za-z \t])|(https?://\S+)", " ", tweet).split())
 
     def percentage(self, part, whole):
         return format(100 * float(part) / float(whole), '.2f')
@@ -140,11 +137,3 @@ class SentimentAnalysis:
 if __name__ == "__main__":
     sa = SentimentAnalysis()
     sa.DownloadData()
-"""
-
-# Write the content to a Python file
-file_path = "/mnt/data/twitter_sentiment_analysis.py"
-with open(file_path, "w") as f:
-    f.write(code_content)
-
-file_path
